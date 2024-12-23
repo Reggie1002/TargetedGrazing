@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoring Form - L1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            gap: 2px;
+        }
+        .section {
+            border: 1px solid #ccc;
+            padding: 2px;
+            width: 30%;
+        }
+    </style>
+
+<style>
+        input[type="text"] {
+            width: 150px; /* Adjust the width as needed */
+        }
+    </style>
+
+</head>
+<body>
+
+
+
+
+
+    <h1 style="font-size: 16px;margin-top: 0;margin-bottom: 0">Targeted Grazing Monitoring: Forms - L1</h1>
+	<h2 style="font-size: 16px;margin-top: 0;margin-bottom: 0">Invasive Plant Abundance</h2>
+	<button onclick="location.href='index.html'">Home</button>
+	 <div id="display"></div>
+<script>
+        // Declare Global Variables
+        var globalSitename = '';
+        var globalPlotno = '';
+        var globalPeriod = '';
+
+        // Function to get query parameters
+        function getQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                site: params.get('sitename'),
+                plot: params.get('plotno'),
+                period: params.get('period')
+            };
+        }
+
+        // Retrieve query parameters
+        const queryParams = getQueryParams();
+
+        // Store query parameters in global variables
+        globalSitename = queryParams.site;
+        globalPlotno = queryParams.plot;
+        globalPeriod = queryParams.period;
+		
+		// Display the variables
+		const displayDiv = document.getElementById('display');
+		displayDiv.textContent = `Site: ${globalSitename} | Plot: ${globalPlotno} | Period: ${globalPeriod}`;
+	
+    </script>
+	
+	
+	
+	 <div class="container">
+
+        
+    <div id="section1" class="section">
+        <h3 style="font-size: 14px;margin-top: 0;margin-bottom: 0">Invasive Plants</h3>
+	
+    <form id="calcForm" onsubmit="calculate(); return false;">
+    <div class="form-group">
+        <label for="weed1">Weed 1:</label>
+        <select id="weed1">
+			<option value="">-- Select weed ---</option>
+			<option value="Blueweed">Blueweed</option>
+			<option value="Bugloss">Bugloss</option>
+			<option value="Bull thistle">Bull thistle</option>
+			<option value="Burdock">Burdock</option>
+			<option value="Canada thistle">Canada thistle</option>
+			<option value="Cheatgrass">Cheatgrass</option>
+			<option value="Diffuse knapweed">Diffuse knapweed</option>
+			<option value="Hoary alyssum">Hoary alyssum</option>
+			<option value="Hound's tongue">Hound's tongue>
+			<option value="Leafy spurge">Leafy spurge</option>
+			<option value="Oxeye daisy">Oxeye daisy</option>
+			<option value="Spotted knapweed">Spotted knapweed</option>
+			<option value="St John's Wort">St John's Wort</option>
+			<option value="Sulphur cinquefoil">Sulphur cinquefoil</option>
+			<option value="Yellow toadflax">Yellow toadflax</option>
+
+	
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="distribution1">Distribution 1:</label>
+        <select id="distribution1">
+
+			<option value="">-- Select Distribution ---</option>
+            <option value="Single">Single</option>
+            <option value="Patchy">Patchy</option>
+            <option value="Continuous">Continuous</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="weed2">Weed 2:</label>
+        <select id="weed2">
+			<option value="">-- Select weed ---</option>
+			<option value="Blueweed">Blueweed</option>
+			<option value="Bugloss">Bugloss</option>
+			<option value="Bull thistle">Bull thistle</option>
+			<option value="Burdock">Burdock</option>
+			<option value="Canada thistle">Canada thistle</option>
+			<option value="Cheatgrass">Cheatgrass</option>
+			<option value="Diffuse knapweed">Diffuse knapweed</option>
+			<option value="Hoary alyssum">Hoary alyssum</option>
+			<option value="Hound's tongue">Hound's tongue>
+			<option value="Leafy spurge">Leafy spurge</option>
+			<option value="Oxeye daisy">Oxeye daisy</option>
+			<option value="Spotted knapweed">Spotted knapweed</option>
+			<option value="St John's Wort">St John's Wort</option>
+			<option value="Sulphur cinquefoil">Sulphur cinquefoil</option>
+			<option value="Yellow toadflax">Yellow toadflax</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="distribution2">Distribution 2:</label>
+        <select id="distribution2">
+			<option value="">-- Select Distribution ---</option>
+            <option value="Single">Single</option>
+            <option value="Patchy">Patchy</option>
+            <option value="Continuous">Continuous</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="weed3">Weed 3:</label>
+        <select id="weed3">
+			<option value="">-- Select weed ---</option>
+			<option value="Blueweed">Blueweed</option>
+			<option value="Bugloss">Bugloss</option>
+			<option value="Bull thistle">Bull thistle</option>
+			<option value="Burdock">Burdock</option>
+			<option value="Canada thistle">Canada thistle</option>
+			<option value="Cheatgrass">Cheatgrass</option>
+			<option value="Diffuse knapweed">Diffuse knapweed</option>
+			<option value="Hoary alyssum">Hoary alyssum</option>
+			<option value="Hound's tongue">Hound's tongue>
+			<option value="Leafy spurge">Leafy spurge</option>
+			<option value="Oxeye daisy">Oxeye daisy</option>
+			<option value="Spotted knapweed">Spotted knapweed</option>
+			<option value="St John's Wort">St John's Wort</option>
+			<option value="Sulphur cinquefoil">Sulphur cinquefoil</option>
+			<option value="Yellow toadflax">Yellow toadflax</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="distribution3">Distribution 3:</label>
+        <select id="distribution3">
+			<option value="">-- Select Distribution ---</option>
+            <option value="Single">Single</option>
+            <option value="Patchy">Patchy</option>
+            <option value="Continuous">Continuous</option>
+        </select>
+    </div>
+    <button type="submit">Submit</button>
+</form>
+
+    <div class="result" id="result"></div>
+	
+    <button onclick="downloadResult()">Download</button>
+
+    
+	<script>
+	const currentDate = new Date().toLocaleDateString(); // Formats the date in the user's locale
+	const userDateNow = 'Today\'s date is: ' + currentDate;
+	document.getElementById('yourElementId').innerHTML = userDateNow;
+	</script>
+	<script>
+function calculate() 
+let weedData = '';
+{
+    const weed1 = document.getElementById('weed1').value;
+    const distribution1 = document.getElementById('distribution1').value;
+    const weed2 = document.getElementById('weed2').value;     
+    const distribution2 = document.getElementById('distribution2').value; 
+    const weed3 = document.getElementById('weed3').value;
+	const distribution3 = document.getElementById('distribution3').value;
+	
+    weedData = 'Weed 1: ' + weed1 +
+              ' Distrib 1: ' + distribution1 + '\r\n' +
+              'Weed 2: ' + weed2 + 
+              ' Distrib 2: ' + distribution2 + '\r\n' +
+              'Weed 3: ' + weed3 + 
+			  ' Distrib 3: ' + distribution3;
+    
+}
+
+
+function downloadResult() {
+//const resultText = document.getElementById('result').textContent;
+	const headerText = 'Site,Plot,Date,Time,Period,Measure,Subsample,Value';
+    // Get current date and time
+    const now = new Date();
+    const formattedDate = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+    const formattedTime = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`;
+    const timestamp = `${formattedDate}_${formattedTime.replace(/:/g, '-')}`;
+    const formattedDateTime = `${formattedDate} ${formattedTime}`;
+
+    // Add the date and time to the file content
+	const fileContent = `${headerText}\n${weedData}`;
+	const blob = new Blob([fileContent], { type: 'text/plain' });
+
+    // Create the download link
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+
+    // Set the file name with the timestamp
+    link.download = `Invasives_${timestamp}.txt`;
+
+    // Trigger the download
+    link.click();
+}
+    </script>
+    </div>
+   
+    
+
+</body>
+</html>
