@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,54 +9,50 @@
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
     >
+
 </head>
 <body>
 <main class="container">
-    <h1 style="font-size: 16px;margin-top: 0;margin-bottom: 0">TG:L1</h1>
-    <h2 style="font-size: 16px;margin-top: 0;margin-bottom: 0">Pre-grazing</h2>
-    <button onclick="location.href='index.html'">Home</button>
+  <h1 style="font-size: 16px;margin-top: 0;margin-bottom: 0">Targeted Grazing: Forms L1</h1>
 
-    <div id="output"></div>
-    <div class="container">
-        <div id="section1" class="section">
-            <h3 style="font-size: 14px;margin-top: 0;margin-bottom: 0">Grass Height</h3>
-            <form id="calcForm" action="/calculate" method="POST">
-                <div class="form-group">
-                    <label for="txt6">Site name:</label>
-                    <input type="text" id="txt6" name="txt6" maxlength="14" size="14">
-                </div>
-                <div class="form-group">
-                    <label for="num7">Plot number:</label>
-                    <input type="number" id="num7" name="num7" maxlength="14" size="14">
-                </div>
-                <div class="form-group">
-                    <label for="num1">&nbsp;&nbsp;5 paces:</label>
-                    <input type="number" id="num1" name="num1" maxlength="4" size="4">
-                </div>
-                <div class="form-group">
-                    <label for="num2">10 paces:</label>
-                    <input type="number" id="num2" name="num2" maxlength="4" size="4">
-                </div>
-                <div class="form-group">
-                    <label for="num3">15 paces:</label>
-                    <input type="number" id="num3" name="num3" maxlength="4" size="4">
-                </div>
-                <div class="form-group">
-                    <label for="num4">20 paces:</label>
-                    <input type="number" id="num4" name="num4" maxlength="4" size="4">
-                </div>
-                <div class="form-group">
-                    <label for="num5">25 paces:</label>
-                    <input type="number" id="num5" name="num5" maxlength="4" size="4">
-                </div>
+    <div class="form-group">
+        <label for="txt6">Site name:</label>
+        <input type="text" id="txt6" maxlength="14" size="14">
+    </div>
+    <div class="form-group">
+        <label for="num7">Plot number:</label>
+        <input type="number" id="num7" maxlength="4" size="4">
+    </div>
 
-
-                    <button type="submit">Save</button>
-                    <input type="hidden" name="result" value="<%= result %>">
-                    <input type="hidden" name="result3" value="<%= result3 %>">
-            </form>
+    <div class="radio-container">
+        <div class="radio-group">
+            <input type="radio" id="option1" name="toggle" value="Pregraze" checked>
+            <label for="option1">Pre-grazing</label>
+        </div>
+        <div class="radio-group">
+            <input type="radio" id="option2" name="toggle" value="Postgraze">
+            <label for="option2">Post-grazing</label>
         </div>
     </div>
+
+    <div class="container">  
+        <div id="section2" class="section">
+            <button onclick="navigateToPage('invasives.html')">Invasives</button>
+            <button onclick="navigateToPage('photos.html')">Photos</button>
+            <button onclick="navigateToPage('pregraze.html')">Data Entry</button>
+            <button onclick="navigateToPage('summary.html')">Summarize Data</button>
+        </div>
+    </div>
+
+    <script>
+        function navigateToPage(page) {
+            const sitename = document.getElementById('txt6').value;
+            const plotno = document.getElementById('num7').value;
+            const period = document.querySelector('input[name="toggle"]:checked').value;
+            const url = `${page}?sitename=${encodeURIComponent(sitename)}&plotno=${encodeURIComponent(plotno)}&period=${encodeURIComponent(period)}`;
+            location.href = url;
+        }
+    </script>
 </main>
 </body>
 </html>
