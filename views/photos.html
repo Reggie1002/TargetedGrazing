@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <t<title>Monitoring Form - L1</title>
+    <title>Monitoring Form - L1</title>
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    >
 </head>
 <body>
-	<h1 style="font-size: 16px;margin-top: 0;margin-bottom: 0">Targeted Grazing Monitoring: Forms - L1</h1>
-	<h2 style="font-size: 16px;margin-top: 0;margin-bottom: 0">Plot Photos</h2>
-	<button onclick="location.href='index.html'">Back to Main Page</button>
+<main class="container">
+    <h1 style="font-size: 16px;margin-top: 0;margin-bottom: 0">Targeted Grazing Monitoring: Forms - L1</h1>
+    <h2 style="font-size: 16px;margin-top: 0;margin-bottom: 0">Plot Photos</h2>
+    <button onclick="location.href='index.html'">Back to Main Page</button>
     <video id="video" width="320" height="240" autoplay></video>
     <button id="startButton">Take Photo Looking Toward End Marker</button>
     <button id="secondPhotoButton" style="display:none;">Take Photo Looking Straight Down</button>
@@ -15,7 +20,7 @@
     <img id="secondPhoto" alt="Second photo will appear here." style="display:none;"/>
     <a id="downloadFirstLink" style="display:none;">Download First Photo</a>
     <a id="downloadSecondLink" style="display:none;">Download Second Photo</a>
-    
+
     <script>
         const video = document.getElementById('video');
         const canvas = document.getElementById('canvas');
@@ -26,7 +31,7 @@
         const downloadFirstLink = document.getElementById('downloadFirstLink');
         const downloadSecondLink = document.getElementById('downloadSecondLink');
 
-        navigator.mediaDevices.getUserMedia({ video: true })
+        navigator.mediaDevices.getUserMedia({video: true})
             .then(stream => {
                 video.srcObject = stream;
                 console.log('Camera accessed successfully.');
@@ -59,5 +64,6 @@
             downloadSecondLink.textContent = 'Download Second Photo';
         });
     </script>
+</main>
 </body>
 </html>
